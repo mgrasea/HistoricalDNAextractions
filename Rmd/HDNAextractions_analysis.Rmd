@@ -1,0 +1,55 @@
+---
+title: "HDNAextractions_analysis"
+author: "Mary Grace Catapang"
+date: '2022-06-23'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+
+```{r}
+library("tidyverse")
+```
+
+## Data Import
+```{r col types}
+col_dna <- cols (
+  label = col_character(),
+  catalog_number = col_character(),
+  country = col_character(),
+  year_collected = col_date(format = "%Y"),
+  dna_extraction = col_character(),
+  date_extracted = col_date("%d%b%y"),#tofix parsing error
+  extracted_by = col_character(),
+  overnight_incubation = col_character(),
+  mass_g = col_double(),
+  qubit = col_character(),
+  concentration = col_double()
+)
+```
+
+```{r initial data}
+HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata.csv", col_types = col_dna)
+```
+
+## Plots
+
+```{r mass vs. concentration}
+ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=country)) +
+  geom_point(size=2)
+```
+
+```{r year vs. concentration scatterplot}
+ggplot(HDNAinitdata, aes(x=year_collected, y=concentration, color=country)) + 
+    geom_point(size=2)
+```
+
+```{r year vs. concentration line}
+HDNAinitdata %>%
+  tail(10) %>%
+  ggplot( aes(x=year_collected, y=concentration)) +
+    geom_line()
+```

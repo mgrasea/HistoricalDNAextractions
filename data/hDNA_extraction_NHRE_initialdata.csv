@@ -1,0 +1,37 @@
+﻿label,catalog_number,country,year_collected,dna_extraction,date_extracted,extracted_by,overnight_incubation,mass_g,qubit,concentration
+A,USNM 1260495,Panama,1971,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,no,0.2,BR,13.4
+B,Perlas 301 (Floy tag 03001),Panama,2022,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,no,0.1,BR,5.15
+C,Perlas 301 (AP3XG21),Panama,2022,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,no,0.1,BR,30.5
+G,USNM 1260298,Galapagos,1933,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.15,BR,6.57
+H,USNM 99470,Panama,1998,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.11,BR,49.6
+I,USNM 99471,Galapagos,,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.35,BR,19.1
+J,USNM 1260508,Oaxaca,1934,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.27,BR,17.3
+K,USNM 1132559,Revillagidedos,1934,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.36,BR,56.6
+L,USNM 73759,Colombia,1935,Qiagen Dneasy Blood & Tissue Kit,1-Jun-22,Michael Connelly,yes,0.13,BR,2.82
+A1,USNM 73593,Panama,1933,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.2,BR,7.93
+B1,USNM 77303,Colombia,1934,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.23,BR,4.62
+C1,USNM 260304,Mexico,1933,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.28,BR,38.3
+D1,USNM 1202361,Revillagidedos,1934,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.13,BR,3.99
+E1,USNM 1260713,Galapagos,1966,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.29,BR,31.4
+F1,USNM 1260303,Galapagos,1934,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.75,BR,4.56
+G1,USNM 1260297,Galapagos,1933,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.13,BR,3.66
+H1,USNM 1199340,Galapagos,1966,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.42,BR,44.1
+I1,USNM 1132560,Galapagos,1938,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.96,BR,5.23
+J1,USNM 1260296,Galapagos,1933,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.85,BR,4.44
+K1,USNM 99474,Galapagos,1998,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.32,BR,32.8
+L1,USNM 78772,Rapa Nui,1982,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.33,BR,10
+M1,USNM 47848,Tanzania,1974,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.29,BR,12.1
+N1,USNM 81555,Tanzania,1957,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.16,BR,12.2
+O1,USNM 81554,Tanzania,1957,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.26,BR,5.8
+P1,USNM 1128567,Kenya,1964,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.7,BR,3.33
+Q1,USNM 1208931,Egypt,,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.26,BR,142
+R1,USNM 1260710,Madagascar,1964,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.66,BR,220
+S1,USNM 91584,Pitcairn Island,1987,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.27,BR,23.2
+T1,USNM 91576,Pitcairn Island,1987,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.67,BR,3.43
+U1,USNM 91584,Pitcairn Island,1987,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,1.03,BR,5.26
+V1,USNM 91585,Pitcairn Island,1987,Qiagen Dneasy Blood & Tissue Kit,12-Jun-22,Michael Connelly,yes,0.19,BR,14
+A2,USNM 90516,Philippines,1993,Qiagen Dneasy Blood & Tissue Kit,15-Jun-22,Mary Grace Catapang,yes,0.13,HS,0.694
+B2,USNM 1200218,Indonesia,1963,Qiagen Dneasy Blood & Tissue Kit,16-Jun-22,Mary Grace Catapang,yes,0.12,HS,0.593
+C2,USNM 1131906,American Samoa,1946,Qiagen Dneasy Blood & Tissue Kit,17-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.48
+D2,USNM 44398,Marshall Islands,1946,Qiagen Dneasy Blood & Tissue Kit,18-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.95
+E2,USNM 81619,Sri Lanka,1964,Qiagen Dneasy Blood & Tissue Kit,19-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.63
