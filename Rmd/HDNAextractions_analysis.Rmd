@@ -37,11 +37,29 @@ HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata.csv", col_type
 
 ## Plots
 
-```{r mass vs. concentration}
+# Specimens
+
+```{r country of origin}
+ggplot(data = HDNAinitdata) + 
+  geom_bar(mapping = aes(x = country)) +
+  coord_flip()
+```
+```{r year of collection}
+ggplot(data = HDNAinitdata) + 
+  geom_bar(mapping = aes(x = year_collected, fill = country))
+```
+
+# Mass vs. Concentration 
+```{r mass vs. concentration by country}
 ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=country)) +
   geom_point(size=2)
 ```
+```{r mass vs. concentration by year}
+ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=year_collected)) +
+  geom_point(size=2)
+```
 
+# Year vs. Concentration
 ```{r year vs. concentration scatterplot}
 ggplot(HDNAinitdata, aes(x=year_collected, y=concentration, color=country)) + 
     geom_point(size=2)
