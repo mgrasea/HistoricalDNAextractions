@@ -32,7 +32,7 @@ col_dna <- cols (
 ```
 
 ```{r initial data}
-HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata.csv", col_types = col_dna)
+HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata2.csv", col_types = col_dna)
 ```
 
 ## Plots
@@ -41,7 +41,7 @@ HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata.csv", col_type
 
 ```{r country of origin}
 ggplot(data = HDNAinitdata) + 
-  geom_bar(mapping = aes(x = country)) +
+  geom_bar(mapping = aes(x = country, fill = contemporary)) +
   coord_flip()
 ```
 ```{r year of collection}
@@ -58,16 +58,65 @@ ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=country)) +
 ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=year_collected)) +
   geom_point(size=2)
 ```
-
 # Year vs. Concentration
 ```{r year vs. concentration scatterplot}
 ggplot(HDNAinitdata, aes(x=year_collected, y=concentration, color=country)) + 
     geom_point(size=2)
 ```
+# Maps
+```{r load packages}
+library(dplyr)
+library(ggplot2)
+library(viridis)
+```
 
-```{r year vs. concentration line}
-HDNAinitdata %>%
-  tail(10) %>%
-  ggplot( aes(x=year_collected, y=concentration)) +
-    geom_line()
+```{r data import}
+trans_data <- read_csv("./data/hDNA_extraction_NHRE_data_transformed.csv")
+```
+```{r world map}
+# world map, not clean
+WorldMap <- map_data("world") %>%
+               filter(region != "Antarctica") %>%
+               fortify
+```
+```{r centroid for bubbles}
+centroid <- read_csv("./data/centroid.csv")
+```
+```{r specimen data}
+# set data types
+cols_country <- cols(
+  `Country` = col_character(),
+  `longitude` = col_double(),
+  `latitude` = col_double(),
+  `ISO` = col_character(),
+  `COUNTRYAFF` = col_character(),
+  `AFF_ISO` = col_character(),
+  `count_specimens` = col_integer()
+)
+# add geospatial data to specimen data
+df1 <- trans_data %>% group_by(`country`) %>% summarise(count_specimens = n())
+data_geo_country <- distinct(merge(centroid, df1, by = "country", all.y=TRUE, col_types = cols_country))
+view(data_geo_country)
+```
+
+```{r plotting map customized}
+# Create breaks for the color scale
+mybreaks <- c(1, 5, 12)
+
+ggplot() +
+  geom_polygon(data = WorldMap, aes(x=long, y = lat, group = group), fill="grey", alpha=0.9) +
+  geom_point( data=data_geo_country, aes(x=long, y=lat, size=count_specimens, color=count_specimens, alpha = count_specimens))+
+  scale_size_continuous(name="Number of Specimens", trans="log", range=c(3,10), breaks=mybreaks) +
+    scale_alpha_continuous(name="Number of Specimens", trans="log", range=c(0.1, .9), breaks=mybreaks) +
+    scale_color_viridis(option="magma", trans="log", breaks=mybreaks,name="Number of Specimens" ) +
+  theme_void() + coord_map() + 
+    guides( colour = guide_legend()) +
+    ggtitle("Pocillopora DNA Extractions") +
+    theme(
+      text = element_text(color = "#22211d"),
+      plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+      panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+      legend.background = element_rect(fill = "#f5f5f2", color = NA),
+      plot.title = element_text(size= 16, hjust=0.1, color = "#4e4d47", margin = margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
+    )
 ```
