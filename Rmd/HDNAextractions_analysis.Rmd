@@ -9,11 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
-
 ```{r}
 library("tidyverse")
 ```
-
 ## Data Import
 ```{r col types}
 col_dna <- cols (
@@ -30,17 +28,14 @@ col_dna <- cols (
   concentration = col_double()
 )
 ```
-
 ```{r initial data}
-HDNAinitdata <- read_csv("./data/hDNA_extraction_NHRE_initialdata2.csv", col_types = col_dna)
+HDNA_data <- read_csv("./data/hDNA_extraction_NHRE_initialdata2.csv", col_types = col_dna)
 ```
-
-## Plots
-
-# Specimens
-
+## Plots Initial
+This is just for data exploration and won't be going into the poster.
+### Specimens
 ```{r country of origin}
-ggplot(data = HDNAinitdata) + 
+ggplot(data = HDNA_data) + 
   geom_bar(mapping = aes(x = country, fill = contemporary)) +
   coord_flip()
 ```
@@ -49,30 +44,31 @@ ggplot(data = HDNAinitdata) +
   geom_bar(mapping = aes(x = year_collected, fill = country))
 ```
 
-# Mass vs. Concentration 
+### Mass vs. Concentration 
 ```{r mass vs. concentration by country}
-ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=country)) +
+ggplot(HDNA_data, aes(x=mass_g, y=concentration, color=country)) +
   geom_point(size=2)
 ```
 ```{r mass vs. concentration by year}
-ggplot(HDNAinitdata, aes(x=mass_g, y=concentration, color=year_collected)) +
+ggplot(HDNA_data, aes(x=mass_g, y=concentration, color=year_collected)) +
   geom_point(size=2)
 ```
-# Year vs. Concentration
+### Year vs. Concentration
 ```{r year vs. concentration scatterplot}
-ggplot(HDNAinitdata, aes(x=year_collected, y=concentration, color=country)) + 
+ggplot(HDNA_data, aes(x=year_collected, y=concentration, color=country)) + 
     geom_point(size=2)
 ```
-# Maps
+## Map
+A map showing the location of the specimens used for the analysis.
 ```{r load packages}
 library(dplyr)
 library(ggplot2)
 library(viridis)
 ```
-
 ```{r data import}
 trans_data <- read_csv("./data/hDNA_extraction_NHRE_data_transformed.csv")
 ```
+
 ```{r world map}
 # world map, not clean
 WorldMap <- map_data("world") %>%
@@ -93,12 +89,13 @@ cols_country <- cols(
   `AFF_ISO` = col_character(),
   `count_specimens` = col_integer()
 )
+
 # add geospatial data to specimen data
-df1 <- trans_data %>% group_by(`country`) %>% summarise(count_specimens = n())
+df1 <- trans_data %>% group_by(country) %>% summarise(count_specimens = n())
 data_geo_country <- distinct(merge(centroid, df1, by = "country", all.y=TRUE, col_types = cols_country))
 view(data_geo_country)
 ```
-
+This map still requires fixing for aesthetics. Centroid data should also be modified to included places like Hawaii and Galapagos. It might be good to have a map centered in the Pacific?
 ```{r plotting map customized}
 # Create breaks for the color scale
 mybreaks <- c(1, 5, 12)
@@ -120,3 +117,56 @@ ggplot() +
       plot.title = element_text(size= 16, hjust=0.1, color = "#4e4d47", margin = margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
     )
 ```
+## Correlation with specimen age 
+There is no correlation between age of specimen and the DNA concentration collected.
+```{r year vs. concentration scatterplot}
+# linear trend + confidence interval
+library(hrbrthemes)
+ggplot(HDNA_data, aes(x=year_collected, y=concentration)) +
+  geom_point() +
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
+  theme_ipsum()
+```
+```{r year vs. purity scatterplot}
+
+
+
+```
+## Statistical Analysis
+I used t-test to identify whether there is a significant difference between the qubit concentration of the DNA extracted using different methods. A p-value of ≤ 0.05 is considered statistically signficant.
+
+```{r data import}
+BloodTissue <- filter(HDNA_data, contemporary == "no" && dna_extraction == "Qiagen Dneasy Blood & Tissue Kit" )
+Autogen <- filter(HDNA_data, contemporary == "no" && dna_extraction == "Qiagen Dneasy Blood & Tissue Kit" )
+PowerSoil <- read_csv("./data/pp_concentration.csv")
+```
+No significant statistical difference between Blood&Tissue and Autogen.
+```{r t-test BloodTissue vs. Autogen}
+
+t.test(BloodTissue, Autogen) 
+```
+There is significant statistical difference between Powersoil and Autogen.
+```{r t-test PowerSoil vs. Autogen}
+
+t.test(PowerSoil, Autogen) 
+```
+There is significant statistical difference between Blood&Tissue and Powersoil.
+```{r t-test PowerSoil vs. BloodTissue}
+
+t.test(PowerSoil, BloodTissue) 
+```
+## Boxplot
+This plot still needs cleaning and editing to match poster aesthetics. 
+```{r box plot concentration}
+hDNA_extract <- filter(HDNA_data, contemporary == "no")
+view(hDNA_extract)
+ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration)) + 
+    geom_boxplot(fill="slateblue", alpha=0.2) + 
+    xlab("DNA extraction")
+```
+```{r box plot purity}
+
+
+
+```
+

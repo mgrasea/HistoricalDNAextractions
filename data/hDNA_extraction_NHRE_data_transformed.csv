@@ -1,36 +1,50 @@
 ﻿catalog_number,contemporary,country,year_collected,mass_bt,concentration_bt,bt_overnight,mass_pp,concentration_pp,mass_a,concentration_a
-USNM 1131906,no,American Samoa,1946,0.11,3.48,yes,,,,
-USNM 73759,no,Colombia,1935,0.13,2.82,yes,,,0.28,2.92
-USNM 77303,no,Colombia,1934,0.23,4.62,yes,,,,
-USNM 1208931,no,Egypt,,0.26,142,yes,,,,
-USNM 12002377,no,French Polynesia,1922,0.26,2.53,yes,0.2,3.01,,
-USNM 1260297,no,Galapagos,1933,0.13,3.66,yes,,,,
-USNM 1260296,no,Galapagos,1933,0.85,4.44,yes,,,,
-USNM 1260303,no,Galapagos,1934,0.75,4.56,yes,,,,
-USNM 1132560,no,Galapagos,1938,0.96,5.23,yes,,,,
-USNM 1260298,no,Galapagos,1933,0.15,6.57,yes,,,,
-USNM 99471,no,Galapagos,,0.35,19.1,yes,,,0.19,12
-USNM 1260713,no,Galapagos,1966,0.29,31.4,yes,,,,
-USNM 99474,no,Galapagos,1998,0.32,32.8,yes,,,,
-USNM 1199340,no,Galapagos,1966,0.42,44.1,yes,,,,
-USNM 1260928,no,Galapagos,1933,,,,,,0.11,0.985
-USNM 99476,no,Guam,,0.2,3.32,yes,0.22,0.347,,
+USNM 1200218,no,Indonesia,1963,0.12,0.593,yes,,,,
+USNM 90516,no,Philippines,1993,0.13,0.694,yes,,,,
+USNM 1207568,no,Malaysia,1963,0.25,0.767,yes,0.22,0,,
 USNM 80293,no,Hawaii,1965,0.26,0.842,yes,0.21,0,,
 USNM 19246,no,Hawaii,1891,0.2,1.04,yes,0.17,0,,
-USNM 78680,no,Hawaii,1921,0.24,20.4,yes,0.19,0.279,,
-USNM 1200218,no,Indonesia,1963,0.12,0.593,yes,,,,
+USNM 12002377,no,French Polynesia,1922,0.26,2.53,yes,0.2,3.01,,
+USNM 73759,no,Colombia,1935,0.13,2.82,yes,,,0.28,2.92
+USNM 99476,no,Guam,,0.2,3.32,yes,0.22,0.347,,
 USNM 1128567,no,Kenya,1964,0.7,3.33,yes,,,,
-USNM 1204936,no,Kiribati,1951,0.31,9.16,yes,0.29,3.73,,
-USNM 1260710,no,Madagascar,1964,0.66,220,yes,,,0.36,4.92
-USNM 1207568,no,Malaysia,1963,0.25,0.767,yes,0.22,0,,
+USNM 91576,no,Pitcairn Islands,1987,0.67,3.43,yes,,,,
+USNM 1131906,no,American Samoa,1946,0.11,3.48,yes,,,,
+USNM 81619,no,Sri Lanka,1964,0.11,3.63,yes,,,,
+USNM 1260297,no,Galapagos,1933,0.13,3.66,yes,,,,
 USNM 44398,no,Marshall Islands,1946,0.11,3.95,yes,,,,
-USNM 44371,no,Marshall Islands,1946,0.22,75.6,yes,0.22,30.1,,
-USNM 1260508,no,Mexico,1934,0.27,17.3,yes,,,0.16,7.23
-USNM 260304,no,Mexico,1933,0.28,38.3,yes,,,,
-USNM 1132559,no,Mexico,1934,0.36,56.6,yes,,,0.19,1.15
+USNM 91583,no,Pitcairn Islands,1987,0.28,4.12,yes,0.2,0.411,,
+USNM 1260296,no,Galapagos,1933,0.85,4.44,yes,,,,
+USNM 1260303,no,Galapagos,1934,0.75,4.56,yes,,,,
+USNM 77303,no,Colombia,1934,0.23,4.62,yes,,,,
+USNM 1132560,no,Galapagos,1938,0.96,5.23,yes,,,,
+USNM 91584,no,Pitcairn Islands,1987,1.03,5.26,yes,,,,
+USNM 81554,no,Tanzania,1957,0.26,5.8,yes,,,,
+USNM 91586,no,Pitcairn Islands,1987,0.22,5.96,yes,0.2,7.65,,
+USNM 80306,no,Sri Lanka,1964,0.12,6.15,yes,0.12,0.309,,
+USNM 1260298,no,Galapagos,1933,0.15,6.57,yes,,,,
 USNM 73593,no,Panama,1933,0.2,7.93,yes,,,,
+USNM 1204936,no,Kiribati,1951,0.31,9.16,yes,0.29,3.73,,
+USNM 78772,no,Rapa Nui,1982,0.33,10,yes,,,,
+USNM 47848,no,Tanzania,1974,0.29,12.1,yes,,,,
+USNM 81555,no,Tanzania,1957,0.16,12.2,yes,,,,
 USNM 1260495,no,Panama,1971,0.2,13.4,no,,,0.19,109
+USNM 91585,no,Pitcairn Islands,1987,0.19,14,yes,,,,
+USNM 1260508,no,Mexico,1934,0.27,17.3,yes,,,0.16,7.23
+USNM 99471,no,Galapagos,,0.35,19.1,yes,,,0.19,12
+USNM 78680,no,Hawaii,1921,0.24,20.4,yes,0.19,0.279,,
+USNM 91584,no,Pitcairn Islands,1987,0.27,23.2,yes,,,,
+USNM 1260713,no,Galapagos,1966,0.29,31.4,yes,,,,
+USNM 99474,no,Galapagos,1998,0.32,32.8,yes,,,,
+USNM 260304,no,Mexico,1933,0.28,38.3,yes,,,,
+USNM 1199340,no,Galapagos,1966,0.42,44.1,yes,,,,
 USNM 99470,no,Panama,1998,0.11,49.6,yes,,,0.37,10.6
+USNM 1132559,no,Mexico,1934,0.36,56.6,yes,,,0.19,1.15
+USNM 44371,no,Marshall Islands,1946,0.22,75.6,yes,0.22,30.1,,
+USNM 1208931,no,Egypt,,0.26,142,yes,,,,
+USNM 1260710,no,Madagascar,1964,0.66,220,yes,,,0.36,4.92
+USNM 1202361,no,Revillagidedos,1934,,,,,,,
+USNM 1260928,no,Galapagos,1933,,,,,,0.11,0.985
 Perlas 301 (Floy tag 03001),yes,Panama,2021,0.1,5.15,no,,,,
 Perlas 301 (AP3XG21),yes,Panama,2021,0.1,30.5,no,,,,
 Cocos_611_04992 (AP3XF77),yes,Panama,2021,,,,,,,13.3
@@ -41,17 +55,3 @@ Coiba_910_06119 (AP3XF46),yes,Panama,2021,,,,,,,17.5
 Coiba_922_06366 (AP3XF60),yes,Panama,2021,,,,,,,55.9
 Perlas_341_06143 (AP3XG32),yes,Panama,2021,,,,,,,20.8
 Perlas_401_06412 (AP3XG68),yes,Panama,2021,,,,,,,24.9
-USNM 90516,no,Philippines,1993,0.13,0.694,yes,,,,
-USNM 91576,no,Pitcairn Islands,1987,0.67,3.43,yes,,,,
-USNM 91583,no,Pitcairn Islands,1987,0.28,4.12,yes,0.2,0.411,,
-USNM 91584,no,Pitcairn Islands,1987,1.03,5.26,yes,,,,
-USNM 91586,no,Pitcairn Islands,1987,0.22,5.96,yes,0.2,7.65,,
-USNM 91585,no,Pitcairn Islands,1987,0.19,14,yes,,,,
-USNM 91584,no,Pitcairn Islands,1987,0.27,23.2,yes,,,,
-USNM 78772,no,Chile,1982,0.33,10,yes,,,,
-USNM 1202361,no,Mexico,1934,,,,,,,
-USNM 81619,no,Sri Lanka,1964,0.11,3.63,yes,,,,
-USNM 80306,no,Sri Lanka,1964,0.12,6.15,yes,0.12,0.309,,
-USNM 81554,no,Tanzania,1957,0.26,5.8,yes,,,,
-USNM 47848,no,Tanzania,1974,0.29,12.1,yes,,,,
-USNM 81555,no,Tanzania,1957,0.16,12.2,yes,,,,
