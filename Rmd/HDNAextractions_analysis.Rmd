@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
 
-```{r}
-library("tidyverse")
+```{r libraries}
+library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(dplyr)
@@ -29,7 +29,7 @@ col_dna <- cols (
   country = col_character(),
   year_collected = col_date(format = "%Y"),
   dna_extraction = col_character(),
-  date_extracted = col_date("%d%b%y"),#tofix parsing error
+  date_extracted = col_date("%d%b%y"),#to fix date parsing error
   extracted_by = col_character(),
   overnight_incubation = col_character(),
   mass_g = col_double(),
@@ -47,21 +47,17 @@ NanoDrop_data <- read_csv("./data/NanoDrop1_transformed.csv", col_types = col_dn
 ```
 
 ## Plots Initial
-
 This is just for data exploration and won't be going into the poster. 
-
 ### Specimens
 ```{r country of origin}
 ggplot(data = HDNA_data) + 
   geom_bar(mapping = aes(x = country, fill = contemporary)) +
   coord_flip()
 ```
-
 ```{r year of collection}
 ggplot(data = HDNA_data) + 
   geom_bar(mapping = aes(x = year_collected, fill = country))
 ```
-
 ### Mass vs. Concentration
 
 ```{r mass vs. concentration by country}
@@ -86,7 +82,6 @@ ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color=country)) +
 A map showing the location of the specimens used for the analysis.
 
 ```{r world map}
-# world map, not clean
 WorldMap <- map_data("world") %>%
                filter(region != "Antarctica") %>%
                fortify
@@ -197,14 +192,14 @@ No significant statistical difference between Blood&Tissue and Autogen.
 t.test(BloodTissue$concentration_norm, Autogen$concentration_norm) 
 ```
 
-There is significant statistical difference between Powersoil and Autogen.
+No significant statistical difference between Powersoil and Autogen.
 
 ```{r t-test PowerSoil vs. Autogen}
 
 t.test(PowerSoil$concentration_norm, Autogen$concentration_norm) 
 ```
 
-There is significant statistical difference between Blood&Tissue and Powersoil.
+No significant statistical difference between Blood&Tissue and Powersoil.
 
 ```{r t-test PowerSoil vs. BloodTissue}
 
@@ -212,7 +207,6 @@ t.test(PowerSoil$concentration_norm, BloodTissue$concentration_norm)
 ```
 
 ## Boxplot
-This plot still needs cleaning and editing to match poster aesthetics.
 ```{r box plot concentration}
 hDNA_extract <- filter(HDNA_data, contemporary == "no")
 ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
@@ -234,6 +228,7 @@ ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill
     legend.position = "none"
   )
 ```
+Nanodrop data won't be included in the poster. 
 ```{r box plot purity contemporary vs. historical}
 ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230 ratio")) + 
     geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
@@ -245,6 +240,7 @@ ggplot(NanoDrop_data, aes(x=as.factor(dna_extraction), y="260/230 ratio")) +
     xlab("DNA extraction")
 ```
 ## Nanodrop and Qubit correlation
+Shows that there is weak correlation between Nanodrop concentration and Qubit concentration
 ```{r nanodrop vs. qubit concentration scatterplot}
 # linear trend + confidence interval
 sp3 <- ggplot(NanoDrop_data, aes(x=nanodrop_concentration, y=concentration)) +
