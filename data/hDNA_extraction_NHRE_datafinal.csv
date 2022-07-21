@@ -1,0 +1,109 @@
+﻿label,catalog_number,contemporary,country,year_collected,dna_extraction,date_extracted,extracted_by,overnight_incubation,mass_g,qubit,concentration,concentration_norm
+15,USNM 73759,no,Colombia,1935,Autogen GP,29-Jun-22,,yes,0.28,BR,2.92,10.43
+10,USNM 1260928,no,Galapagos Islands,1933,Autogen GP,29-Jun-22,,yes,0.11,HS,0.985,8.95
+12,USNM 99471,no,Galapagos Islands,,Autogen GP,29-Jun-22,,yes,0.19,BR,12,63.16
+16,USNM 1260710,no,Madagascar,1964,Autogen GP,29-Jun-22,,yes,0.36,HS,4.92,13.67
+13,USNM 1260508,no,Mexico,1934,Autogen GP,29-Jun-22,,yes,0.16,BR,7.23,45.19
+3,Cocos_611_04992 (AP3XF77),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,13.3,13.3
+4,Cocos_649_05289 (AP3XF93),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,19.3,19.3
+5,Cocos_659_05117 (AP3XF93),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,25.3,25.3
+6,Cocos_668_05529 (AP3XG03),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,51.7,51.7
+1,Coiba_910_06119 (AP3XF46),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,17.5,17.5
+2,Coiba_922_06366 (AP3XF60),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,55.9,55.9
+7,Perlas_341_06143 (AP3XG32),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,20.8,20.8
+8,Perlas_401_06412 (AP3XG68),yes,Panama,2021,Autogen GP,29-Jun-22,,yes,,BR,24.9,24.9
+9,USNM 1260495,no,Panama,1971,Autogen GP,29-Jun-22,,yes,0.19,BR,109,573.68
+11,USNM 99470,no,Panama,1998,Autogen GP,29-Jun-22,,yes,0.37,BR,10.6,28.65
+14,USNM 1132559,no,Revillagigedo Islands,1934,Autogen GP,29-Jun-22,,yes,0.19,HS,1.15,6.05
+F,USNM 99476,no,Guam,,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.52,HS,7.5,14.42
+G,USNM 80306,no,Sri Lanka,1964,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.12,HS,7.96,66.33
+H,USNM 91586,no,Pitcairn Islands,1987,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.23,BR,5.33,23.17
+I,USNM 12002377,no,French Polynesia,1922,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.24,BR,8.31,34.63
+J,USNM 44371,no,Marshall Islands,1946,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.28,BR,123,439.29
+K,USNM 1207568,no,Malaysia,1963,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.24,HS,0.699,2.91
+L,USNM 80293,no,Hawaii,1965,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.14,HS,1.49,10.64
+M,USNM 1204936,no,Kiribati,1951,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.25,HS,4.78,19.12
+N,USNM 91583,no,Pitcairn Islands,1987,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.12,HS,2.27,18.92
+O,USNM 19246,no,Hawaii,1891,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.27,HS,3.22,11.93
+P,USNM 78680,no,Hawaii,1921,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.24,BR,20.3,84.58
+Q,USNM 1202361,no,Mexico,1899,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.2,BR,2,10
+R,USNM 1442510,no,Marshall Islands,1947,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.22,HS,3.46,15.73
+S,USNM 1260809,no,Micronesia,1954,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.19,BR,14.6,76.84
+T,USNM 1260852,no,Micronesia,,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.21,BR,28.9,137.62
+U,USNM 1260487,no,Micronesia,1954,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.13,BR,20.9,160.77
+V,USNM 1260297,no,Galapagos Islands,1933,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.25,BR,3.26,13.04
+W,USNM 91579,no,Pitcairn Islands,1987,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.12,HS,2.93,24.42
+X,USNM 1207899,no,Tonga,,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.23,BR,36.9,160.43
+Y,USNM 90521,no,Philippines,,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.24,BR,3.58,14.92
+Z,USNM 91084,no,Indonesia,1978,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.3,BR,33.8,112.67
+AA,USNM 1204583,no,Hawaii,1930,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.2,BR,2.4,12
+BB,USNM 81555,no,Tanzania,1957,Autogen GP,19-Jul-22,Mary Grace Catapang,yes,0.2,HS,2.95,14.75
+L,USNM 73759,no,Colombia,1935,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.13,BR,2.82,21.69
+G,USNM 1260298,no,Galapagos Islands,1933,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.15,BR,6.57,43.8
+I,USNM 99471,no,Galapagos Islands,,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.35,BR,19.1,54.57
+J,USNM 1260508,no,Mexico,1934,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.27,BR,17.3,64.07
+C,Perlas 301 (AP3XG21),yes,Panama,2021,Qiagen BT,1-Jun-22,Michael Connelly,no,0.1,BR,30.5,305
+B,Perlas 301 (Floy tag 03001),yes,Panama,2021,Qiagen BT,1-Jun-22,Michael Connelly,no,0.1,BR,5.15,51.5
+A,USNM 1260495,no,Panama,1971,Qiagen BT,1-Jun-22,Michael Connelly,no,0.2,BR,13.4,67
+H,USNM 99470,no,Panama,1998,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.11,BR,49.6,450.91
+K,USNM 1132559,no,Revillagigedo Islands,1934,Qiagen BT,1-Jun-22,Michael Connelly,yes,0.36,BR,56.6,157.22
+B1,USNM 77303,no,Colombia,1934,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.23,BR,4.62,20.09
+Q1,USNM 1208931,no,Egypt,,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.26,BR,142,546.15
+E1,USNM 1260713,no,Galapagos Islands,1966,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.29,BR,31.4,108.28
+I1,USNM 1132560,no,Galapagos Islands,1938,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.96,BR,5.23,5.45
+H1,USNM 1199340,no,Galapagos Islands,1966,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.42,BR,44.1,105
+J1,USNM 1260296,no,Galapagos Islands,1933,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.85,BR,4.44,5.22
+G1,USNM 1260297,no,Galapagos Islands,1933,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.13,BR,3.66,28.15
+F1,USNM 1260303,no,Galapagos Islands,1934,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.75,BR,4.56,6.08
+K1,USNM 99474,no,Galapagos Islands,1998,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.32,BR,32.8,102.5
+P1,USNM 1128567,no,Kenya,1964,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.7,BR,3.33,4.76
+R1,USNM 1260710,no,Madagascar,1964,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.66,BR,220,333.33
+D1,USNM 1202361,no,Mexico,1934,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.13,BR,3.99,30.69
+C1,USNM 1260304,no,Mexico,1933,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.28,BR,38.3,136.79
+A1,USNM 73593,no,Panama,1933,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.2,BR,7.93,39.65
+T1,USNM 91576,no,Pitcairn Islands,1987,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.67,BR,3.43,5.12
+S1,USNM 91584,no,Pitcairn Islands,1987,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.27,BR,23.2,85.93
+U1,USNM 91584,no,Pitcairn Islands,1987,Qiagen BT,12-Jun-22,Michael Connelly,yes,1.03,BR,5.26,5.11
+V1,USNM 91585,no,Pitcairn Islands,1987,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.19,BR,14,73.68
+L1,USNM 78772,no,Rapa Nui,1982,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.33,BR,10,30.3
+M1,USNM 47848,no,Tanzania,1974,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.29,BR,12.1,41.72
+O1,USNM 81554,no,Tanzania,1957,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.26,BR,5.8,22.31
+N1,USNM 81555,no,Tanzania,1957,Qiagen BT,12-Jun-22,Michael Connelly,yes,0.16,BR,12.2,76.25
+A2,USNM 90516,no,Philippines,1993,Qiagen BT,15-Jun-22,Mary Grace Catapang,yes,0.13,HS,0.694,5.34
+B2,USNM 1200218,no,Indonesia,1963,Qiagen BT,15-Jun-22,Mary Grace Catapang,yes,0.12,HS,0.593,4.94
+C2,USNM 1131906,no,American Samoa,1946,Qiagen BT,15-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.48,31.64
+D2,USNM 44398,no,Marshall Islands,1946,Qiagen BT,15-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.95,35.91
+E2,USNM 81619,no,Sri Lanka,1964,Qiagen BT,15-Jun-22,Mary Grace Catapang,yes,0.11,BR,3.63,33
+I,USNM 12002377,no,French Polynesia,1922,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.26,BR,2.53,9.73
+F,USNM 99476,no,Guam,,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.2,BR,3.32,16.6
+O,USNM 19246,no,Hawaii,1891,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.2,HS,1.04,5.2
+P,USNM 78680,no,Hawaii,1921,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.24,BR,20.4,85
+L,USNM 80293,no,Hawaii,1965,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.26,HS,0.842,3.24
+M,USNM 1204936,no,Kiribati,1951,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.31,BR,9.16,29.55
+K,USNM 1207568,no,Malaysia,1963,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.25,HS,0.767,3.07
+J,USNM 44371,no,Marshall Islands,1946,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.22,BR,75.6,343.64
+N,USNM 91583,no,Pitcairn Islands,1987,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.28,BR,4.12,14.71
+H,USNM 91586,no,Pitcairn Islands,1987,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.22,BR,5.96,27.09
+G,USNM 80306,no,Sri Lanka,1964,Qiagen BT,27-Jun-22,Mary Grace Catapang,yes,0.12,BR,6.15,51.25
+I,USNM 12002377,no,French Polynesia,1922,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.2,BR,3.01,15.05
+F,USNM 99476,no,Guam,,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.22,HS,0.347,1.58
+O,USNM 19246,no,Hawaii,1891,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.17,HS,0,0
+P,USNM 78680,no,Hawaii,1921,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.19,HS,0.279,1.47
+L,USNM 80293,no,Hawaii,1965,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.21,HS,0,0
+M,USNM 1204936,no,Kiribati,1951,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.29,BR,3.73,12.86
+K,USNM 1207568,no,Malaysia,1963,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.22,HS,0,0
+J,USNM 44371,no,Marshall Islands,1946,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.22,BR,30.1,136.82
+N,USNM 91583,no,Pitcairn Islands,1987,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.2,HS,0.411,2.06
+H,USNM 91586,no,Pitcairn Islands,1987,Qiagen PP,29-Jun-22,Mary Grace Catapang,,0.2,BR,7.65,38.25
+G,USNM 80306,no,Sri Lanka,1964,Qiagen PP,29-Jun-22,Mary Grace Catapang,yes,0.12,HS,0.309,2.58
+Q,USNM 1202361,no,Mexico,1899,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.2,HS,0.609,3.05
+R,USNM 1442510,no,Marshall Islands,1947,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.19,HS,0.241,1.27
+S,USNM 1260809,no,Micronesia,1954,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.18,BR,3.17,17.61
+T,USNM 1260852,no,Micronesia,,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.22,BR,45.2,205.45
+U,USNM 1260487,no,Micronesia,1954,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.13,BR,10.9,83.85
+V,USNM 1260297,no,Galapagos Islands,1933,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.25,BR,2.34,9.36
+W,USNM 91579,no,Pitcairn Islands,1987,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.12,BR,5.43,45.25
+X,USNM 1207899,no,Tonga,,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.2,BR,28.7,143.5
+Y,USNM 90521,no,Philippines,,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.24,BR,8.73,36.38
+Z,USNM 91084,no,Indonesia,1978,Qiagen PP,19-Jul-22,Mary Grace Catapang,,0.19,BR,42.5,223.68
+AA,USNM 1204583,no,Hawaii,1930,Qiagen PP,20-Jul-22,Mary Grace Catapang,,0.22,BR,5.44,24.73
