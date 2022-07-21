@@ -14,6 +14,7 @@ knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 library("tidyverse")
 library(dplyr)
 library(ggplot2)
+library(dplyr)
 library(viridis)
 library(ggpubr)
 library(ggdark)
@@ -50,7 +51,6 @@ NanoDrop_data <- read_csv("./data/NanoDrop1_transformed.csv", col_types = col_dn
 This is just for data exploration and won't be going into the poster. 
 
 ### Specimens
-
 ```{r country of origin}
 ggplot(data = HDNA_data) + 
   geom_bar(mapping = aes(x = country, fill = contemporary)) +
@@ -58,7 +58,7 @@ ggplot(data = HDNA_data) +
 ```
 
 ```{r year of collection}
-ggplot(data = HDNAinitdata) + 
+ggplot(data = HDNA_data) + 
   geom_bar(mapping = aes(x = year_collected, fill = country))
 ```
 
@@ -123,11 +123,11 @@ This map still requires fixing for aesthetics. Centroid data should also be modi
 mybreaks <- c(1, 3, 11)
 
 ggplot() +
-  geom_polygon(data = WorldMap, aes(x=long, y = lat, group = group), fill=NA, color = "white", alpha=0.9) +
+  geom_polygon(data = WorldMap, aes(x=long, y = lat, group = group), fill="gray", color = "white", alpha=0.9) +
   geom_point( data=data_geo_country, aes(x=long, y=lat, size=count_specimens, color=count_specimens, alpha = count_specimens))+
   scale_size_continuous(name="Number of Specimens", trans="log", range=c(3,10), breaks=mybreaks) +
     scale_alpha_continuous(name="Number of Specimens", trans="log", range=c(0.1, .9), breaks=mybreaks) +
-    scale_color_viridis(trans="log", breaks=mybreaks,name="Number of Specimens" ) +
+    scale_color_distiller(palette = "YlOrBr", trans="log", breaks=mybreaks,name="Number of Specimens" ) +
   theme_void() +
   guides( colour = guide_legend()) + 
   dark_theme_gray() +
@@ -140,7 +140,8 @@ ggplot() +
     axis.ticks = element_blank(),
     axis.title = element_blank(),
     axis.text = element_blank(),
-    legend.key = element_blank()
+    legend.key = element_blank(),
+    legend.position="bottom"
     )
 ```
 
@@ -150,26 +151,32 @@ There is no correlation between age of specimen and the DNA concentration collec
 
 ```{r year vs. concentration scatterplot}
 # linear trend + confidence interval
-sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm)) +
-  geom_point(color = "#fcfcfc") +
+sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna_extraction)) +
+  geom_point() +
   geom_smooth(method=lm , color="#b77984", fill="#69b3a2", se=TRUE) +
   labs(x = "year collected", y="concentration(ng/μL/g)") +
+  scale_color_manual(values=c("#dccc77",
+                               "#88cdee",
+                               "#b77984"
+                             )) +
   dark_theme_gray() +
   theme(
     plot.background = element_rect(fill = "grey10"),
     panel.background = element_blank(),
     axis.ticks = element_blank(),
     panel.grid.major = element_line(color = "grey30", size = 0.2),
-    panel.grid.minor = element_line(color = "grey30", size = 0.2)
+    panel.grid.minor = element_line(color = "grey30", size = 0.2),
+    legend.key = element_blank(),
+    legend.background = element_blank(),
+    legend.position="bottom",
+    legend.title = element_blank()
   )
-sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150)
+sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white")
 ```
-
 ```{r year vs. purity scatterplot}
 ggplot(NanoDrop_data, aes(x=year_collected, y= "260/230")) +
-  geom_point() +
-  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
-  theme_ipsum()
+  geom_point(color = "black") +
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE)
 ```
 
 ## Statistical Analysis
@@ -177,7 +184,6 @@ ggplot(NanoDrop_data, aes(x=year_collected, y= "260/230")) +
 I used t-test to identify whether there is a significant difference between the qubit concentration of the DNA extracted using different methods. A p-value of ≤ 0.05 is considered statistically signficant.
 
 ```{r data import}
-library(dplyr)
 #filter data, historical specimens per extraction method
 BloodTissue <- filter(HDNA_data, contemporary == "no", dna_extraction == "Qiagen BT" )
 Autogen <- filter(HDNA_data, contemporary == "no", dna_extraction == "Autogen GP" )
@@ -206,18 +212,19 @@ t.test(PowerSoil$concentration_norm, BloodTissue$concentration_norm)
 ```
 
 ## Boxplot
-
 This plot still needs cleaning and editing to match poster aesthetics.
-
 ```{r box plot concentration}
 hDNA_extract <- filter(HDNA_data, contemporary == "no")
 ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
-  geom_boxplot(alpha=0.9) +
+  geom_boxplot(color="white", alpha=0.9) +
+  scale_fill_manual(values=c("#dccc77",
+                               "#88cdee",
+                               "#b77984"
+                             )) +
   xlab("DNA extraction") +
   ylab("concentration(ng/μL/g)") +
   dark_theme_gray() +
   theme(
-    text=element_text(family="Helvetica", face="bold", size=12),
     plot.background = element_rect(fill = "grey10"),
     panel.background = element_blank(),
     panel.grid.major = element_line(color = "grey30", size = 0.2),
@@ -227,19 +234,21 @@ ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill
     legend.position = "none"
   )
 ```
-
-```{r box plot purity}
-ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230")) + 
-    geom_boxplot(fill="slateblue", alpha=0.2) + 
+```{r box plot purity contemporary vs. historical}
+ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230 ratio")) + 
+    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
     xlab("Contemporary")
 ```
+```{r box plot purity by DNA}
+ggplot(NanoDrop_data, aes(x=as.factor(dna_extraction), y="260/230 ratio")) + 
+    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
+    xlab("DNA extraction")
+```
 ## Nanodrop and Qubit correlation
-
 ```{r nanodrop vs. qubit concentration scatterplot}
 # linear trend + confidence interval
 sp3 <- ggplot(NanoDrop_data, aes(x=nanodrop_concentration, y=concentration)) +
-  geom_point() +
+  geom_point(color = "black") +
   geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) 
-sp3 + stat_cor(method = "pearson", label.x = 100, label.y = )
+sp3 + stat_cor(method = "pearson", label.x = 100, label.y = 100, color = "black")
 ```
-
