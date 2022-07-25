@@ -18,6 +18,8 @@ library(dplyr)
 library(viridis)
 library(ggpubr)
 library(ggdark)
+library(colorspace)
+library(datasets)
 ```
 
 ## Data Import
@@ -122,9 +124,9 @@ ggplot() +
   geom_point( data=data_geo_country, aes(x=long, y=lat, size=count_specimens, color=count_specimens, alpha = count_specimens))+
   scale_size_continuous(name="Number of Specimens", trans="log", range=c(3,10), breaks=mybreaks) +
     scale_alpha_continuous(name="Number of Specimens", trans="log", range=c(0.1, .9), breaks=mybreaks) +
-    scale_color_distiller(palette = "YlOrBr", trans="log", breaks=mybreaks,name="Number of Specimens" ) +
+    scale_color_distiller(palette = "YlOrBr", trans="log", breaks=mybreaks,name="Number of Specimens") +
   theme_void() +
-  guides( colour = guide_legend()) + 
+  guides( colour = guide_legend()) +
   dark_theme_gray() +
   theme(
     plot.background = element_rect(fill = "grey10"),
@@ -136,8 +138,12 @@ ggplot() +
     axis.title = element_blank(),
     axis.text = element_blank(),
     legend.key = element_blank(),
-    legend.position="bottom"
+    legend.position="bottom",
+    legend.text=element_text(size=32),
+    legend.title = element_text(size=32)
     )
+ggsave("map1.png", width = 16, height = 8.5, units = "in")
+
 ```
 
 ## Correlation with specimen age
@@ -147,7 +153,7 @@ There is no correlation between age of specimen and the DNA concentration collec
 ```{r year vs. concentration scatterplot}
 # linear trend + confidence interval
 sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna_extraction)) +
-  geom_point() +
+  geom_point(size = 3) +
   geom_smooth(method=lm , color="#b77984", fill="#69b3a2", se=TRUE) +
   labs(x = "year collected", y="concentration(ng/μL/g)") +
   scale_color_manual(values=c("#dccc77",
@@ -164,8 +170,16 @@ sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna
     legend.key = element_blank(),
     legend.background = element_blank(),
     legend.position="bottom",
-    legend.title = element_blank()
+    legend.title = element_blank(),
+    legend.text = element_text(size=24),
+   axis.text = element_text(size=24),
+    axis.title = element_text(size=24),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+   plot.margin = unit(c(1,1,1,1), "cm")
   )
+
+ggsave("scatterplot1.png", width = 12, height =8, units = "in")
 sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white")
 ```
 ```{r year vs. purity scatterplot}
@@ -225,6 +239,9 @@ ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill
     panel.grid.minor = element_line(color = "grey30", size = 0.2),
     legend.background = element_blank(),
     axis.ticks = element_blank(),
+    axis.text = element_text(size=10),
+    axis.title = element_text(size=10),
+    axis.title.x = element_blank(),
     legend.position = "none"
   )
 ```
@@ -238,6 +255,39 @@ ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230 ratio")) +
 ggplot(NanoDrop_data, aes(x=as.factor(dna_extraction), y="260/230 ratio")) + 
     geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
     xlab("DNA extraction")
+```
+
+## Violin Plot
+
+```{r violin plot concentration}
+hDNA_extract <- filter(HDNA_data, contemporary == "no")
+ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
+  geom_violin(color="white", alpha=0.9) +
+  geom_boxplot(width=0.1, color="white", alpha=0.2) +
+  scale_fill_manual(values=c("#dccc77",
+                               "#88cdee",
+                               "#b77984"
+                             )) +
+  xlab("DNA extraction") +
+  ylab("concentration(ng/μL/g)") +
+  dark_theme_gray() +
+  theme(
+    plot.background = element_rect(fill = "grey10"),
+    panel.background = element_blank(),
+    panel.grid.major = element_line(color = "grey30", size = 0.2),
+    panel.grid.minor = element_line(color = "grey30", size = 0.2),
+    legend.background = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text = element_text(size=24),
+    axis.title = element_text(size=24),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+    legend.position = "none",
+   plot.margin = unit(c(1,1,1,1), "cm")
+  )
+
+ggsave("violinplot1.png", width = 12, height =8, units = "in")
+
 ```
 ## Nanodrop and Qubit correlation
 Shows that there is weak correlation between Nanodrop concentration and Qubit concentration
