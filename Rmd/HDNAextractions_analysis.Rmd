@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
-
+## libraries
 ```{r libraries}
 library(tidyverse)
 library(dplyr)
@@ -18,8 +18,6 @@ library(dplyr)
 library(viridis)
 library(ggpubr)
 library(ggdark)
-library(colorspace)
-library(datasets)
 ```
 
 ## Data Import
@@ -47,38 +45,7 @@ HDNA_data <- read_csv("./data/hDNA_extraction_NHRE_datafinal.csv", col_types = c
 ```{r purity data}
 NanoDrop_data <- read_csv("./data/NanoDrop1_transformed.csv", col_types = col_dna)
 ```
-
-## Plots Initial
-This is just for data exploration and won't be going into the poster. 
-### Specimens
-```{r country of origin}
-ggplot(data = HDNA_data) + 
-  geom_bar(mapping = aes(x = country, fill = contemporary)) +
-  coord_flip()
-```
-```{r year of collection}
-ggplot(data = HDNA_data) + 
-  geom_bar(mapping = aes(x = year_collected, fill = country))
-```
-### Mass vs. Concentration
-
-```{r mass vs. concentration by country}
-ggplot(HDNA_data, aes(x=mass_g, y=concentration_norm, color=country)) +
-  geom_point(size=2)
-```
-
-```{r mass vs. concentration by year}
-ggplot(HDNA_data, aes(x=mass_g, y=concentration_norm, color=year_collected)) +
-  geom_point(size=2)
-```
-
-### Year vs. Concentration
-
-```{r year vs. concentration scatterplot}
-ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color=country)) + 
-    geom_point(size=2)
-```
-
+# Poster Figures and Analysis
 ## Map
 
 A map showing the location of the specimens used for the analysis.
@@ -148,7 +115,6 @@ ggsave("map2.png", width = 16, height = 8.5, units = "in")
 ## Correlation with specimen age
 
 There is no correlation between age of specimen and the DNA concentration collected.
-
 ```{r year vs. concentration scatterplot}
 # linear trend + confidence interval
 sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna_extraction)) +
@@ -181,84 +147,9 @@ sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white",
 
 ggsave("scatterplot2.png", width = 12, height =8, units = "in")
 ```
-```{r year vs. purity scatterplot}
-ggplot(NanoDrop_data, aes(x=year_collected, y= "260/230")) +
-  geom_point(color = "black") +
-  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE)
-```
-
-## Statistical Analysis
-
-I used t-test to identify whether there is a significant difference between the qubit concentration of the DNA extracted using different methods. A p-value of ≤ 0.05 is considered statistically signficant.
-
-```{r data import}
-#filter data, historical specimens per extraction method
-BloodTissue <- filter(HDNA_data, contemporary == "no", dna_extraction == "Qiagen BT" )
-Autogen <- filter(HDNA_data, contemporary == "no", dna_extraction == "Autogen GP" )
-PowerSoil <- filter(HDNA_data, contemporary == "no", dna_extraction == "Qiagen PP" )
-```
-
-No significant statistical difference between Blood&Tissue and Autogen.
-
-```{r t-test BloodTissue vs. Autogen}
-
-t.test(BloodTissue$concentration_norm, Autogen$concentration_norm) 
-```
-
-No significant statistical difference between Powersoil and Autogen.
-
-```{r t-test PowerSoil vs. Autogen}
-
-t.test(PowerSoil$concentration_norm, Autogen$concentration_norm) 
-```
-
-No significant statistical difference between Blood&Tissue and Powersoil.
-
-```{r t-test PowerSoil vs. BloodTissue}
-
-t.test(PowerSoil$concentration_norm, BloodTissue$concentration_norm) 
-```
-
-## Boxplot
-```{r box plot concentration}
-hDNA_extract <- filter(HDNA_data, contemporary == "no")
-ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
-  geom_boxplot(color="white", alpha=0.9) +
-  scale_fill_manual(values=c("#dccc77",
-                               "#88cdee",
-                               "#b77984"
-                             )) +
-  xlab("DNA extraction") +
-  ylab("concentration(ng/μL/g)") +
-  dark_theme_gray() +
-  theme(
-    plot.background = element_rect(fill = "grey10"),
-    panel.background = element_blank(),
-    panel.grid.major = element_line(color = "grey30", size = 0.2),
-    panel.grid.minor = element_line(color = "grey30", size = 0.2),
-    axis.title.x = element_blank(),
-    legend.background = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text = element_text(size=10),
-    axis.title = element_text(size=10),
-    axis.title.x = element_blank(),
-    legend.position = "none"
-  )
-```
-Nanodrop data won't be included in the poster. 
-```{r box plot purity contemporary vs. historical}
-ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230 ratio")) + 
-    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
-    xlab("Contemporary")
-```
-```{r box plot purity by DNA}
-ggplot(NanoDrop_data, aes(x=as.factor(dna_extraction), y="260/230 ratio")) + 
-    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
-    xlab("DNA extraction")
-```
 
 ## Violin Plot
-
+To differentiate the extraction methods based on Qubit concentration
 ```{r violin plot concentration}
 hDNA_extract <- filter(HDNA_data, contemporary == "no")
 ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
@@ -289,8 +180,122 @@ ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill
 ggsave("violinplot1.png", width = 12, height =8, units = "in")
 
 ```
-## Nanodrop and Qubit correlation
-Shows that there is weak correlation between Nanodrop concentration and Qubit concentration
+## Statistical Analysis
+
+I used t-test to identify whether there is a significant difference between the Qubit concentration of the DNA extracted using different methods. A p-value of ≤ 0.05 is considered statistically significant.
+
+```{r data import}
+#filter data, historical specimens per extraction method
+BloodTissue <- filter(HDNA_data, contemporary == "no", dna_extraction == "Qiagen BT" )
+Autogen <- filter(HDNA_data, contemporary == "no", dna_extraction == "Autogen GP" )
+PowerSoil <- filter(HDNA_data, contemporary == "no", dna_extraction == "Qiagen PP" )
+```
+
+No significant statistical difference between Blood&Tissue and Autogen.
+
+```{r t-test BloodTissue vs. Autogen}
+
+t.test(BloodTissue$concentration_norm, Autogen$concentration_norm) 
+```
+
+No significant statistical difference between Powersoil and Autogen.
+
+```{r t-test PowerSoil vs. Autogen}
+
+t.test(PowerSoil$concentration_norm, Autogen$concentration_norm) 
+```
+
+No significant statistical difference between Blood&Tissue and Powersoil.
+
+```{r t-test PowerSoil vs. BloodTissue}
+
+t.test(PowerSoil$concentration_norm, BloodTissue$concentration_norm) 
+```
+
+
+# Plots Others
+Other plots using HistoricalDNAextractions data that were not included in the poster. 
+## Plots Initial
+This is just for data exploration and won't be going into the poster. 
+### Specimens
+Shows a summary of the specimen locations and year of collection
+```{r country of origin}
+ggplot(data = HDNA_data) + 
+  geom_bar(mapping = aes(x = country, fill = contemporary)) +
+  coord_flip()
+```
+```{r year of collection}
+ggplot(data = HDNA_data) + 
+  geom_bar(mapping = aes(x = year_collected, fill = country))
+```
+### Mass vs. Concentration
+Explores the correlation between the mass of the samples and the concentration
+```{r mass vs. concentration by country}
+ggplot(HDNA_data, aes(x=mass_g, y=concentration_norm, color=country)) +
+  geom_point(size=2)
+```
+
+```{r mass vs. concentration by year}
+ggplot(HDNA_data, aes(x=mass_g, y=concentration_norm, color=year_collected)) +
+  geom_point(size=2)
+```
+
+### Year vs. Concentration
+Explores the correlation between the concentration and age of specimen
+```{r year vs. concentration scatterplot}
+ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color=country)) + 
+    geom_point(size=2)
+```
+
+## Boxplot
+Differentiates the extraction methods based on concentration through a boxplot
+```{r box plot concentration}
+hDNA_extract <- filter(HDNA_data, contemporary == "no")
+ggplot(hDNA_extract, aes(x=as.factor(dna_extraction), y=concentration_norm, fill = dna_extraction)) + 
+  geom_boxplot(color="white", alpha=0.9) +
+  scale_fill_manual(values=c("#dccc77",
+                               "#88cdee",
+                               "#b77984"
+                             )) +
+  xlab("DNA extraction") +
+  ylab("concentration(ng/μL/g)") +
+  dark_theme_gray() +
+  theme(
+    plot.background = element_rect(fill = "grey10"),
+    panel.background = element_blank(),
+    panel.grid.major = element_line(color = "grey30", size = 0.2),
+    panel.grid.minor = element_line(color = "grey30", size = 0.2),
+    axis.title.x = element_blank(),
+    legend.background = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text = element_text(size=10),
+    axis.title = element_text(size=10),
+    legend.position = "none"
+  )
+```
+
+Explores the difference in purity of contemporary and historical specimens. There is no clear difference between the two groups.
+```{r box plot purity contemporary vs. historical}
+ggplot(NanoDrop_data, aes(x=as.factor(contemporary), y="260/230 ratio")) + 
+    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
+    xlab("Contemporary")
+```
+Explores the difference in purity based on extraction method used. There is no clear difference between the 3 methods in terms of purity.
+```{r box plot purity by DNA}
+ggplot(NanoDrop_data, aes(x=as.factor(dna_extraction), y="260/230 ratio")) + 
+    geom_boxplot(color = "black", fill="slateblue", alpha=0.9) + 
+    xlab("DNA extraction")
+```
+## Nanodrop correlation
+### Nanodrop vs Year collection
+No correlation with purity values and year collected
+```{r year vs. purity scatterplot}
+ggplot(NanoDrop_data, aes(x=year_collected, y= "260/230")) +
+  geom_point(color = "black") +
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE)
+```
+### Nanodrop and Qubit correlation
+Shows that there is weak correlation between Nanodrop concentration (which are way higher) and Qubit concentration
 ```{r nanodrop vs. qubit concentration scatterplot}
 # linear trend + confidence interval
 sp3 <- ggplot(NanoDrop_data, aes(x=nanodrop_concentration, y=concentration)) +
