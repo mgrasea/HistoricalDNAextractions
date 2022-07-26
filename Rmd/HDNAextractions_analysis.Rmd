@@ -119,7 +119,7 @@ There is no correlation between age of specimen and the DNA concentration collec
 # linear trend + confidence interval
 sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna_extraction)) +
   geom_point(size = 4, aes(shape = dna_extraction)) +
-  geom_smooth(method=lm , color="#b77984", fill="#69b3a2", se=TRUE) +
+  geom_smooth(method=lm , color="white", fill="#69b3a2", se=TRUE) +
   labs(x = "year collected", y="concentration(ng/μL/g)") +
   scale_color_manual(values=c("#dccc77",
                                "#88cdee",
