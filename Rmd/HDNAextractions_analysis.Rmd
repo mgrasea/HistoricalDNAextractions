@@ -118,13 +118,12 @@ There is no correlation between age of specimen and the DNA concentration collec
 ```{r year vs. concentration scatterplot}
 # linear trend + confidence interval
 sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna_extraction)) +
-  geom_point(size = 3) +
+  geom_point(size = 4, aes(shape = dna_extraction)) +
   geom_smooth(method=lm , color="#b77984", fill="#69b3a2", se=TRUE) +
   labs(x = "year collected", y="concentration(ng/μL/g)") +
   scale_color_manual(values=c("#dccc77",
                                "#88cdee",
-                               "#b77984"
-                             )) +
+                               "#b77984")) +
   dark_theme_gray() +
   theme(
     plot.background = element_rect(fill = "grey10"),
@@ -143,6 +142,7 @@ sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna
     axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
    plot.margin = unit(c(.5,.5,.5,.5), "cm")
   )
+
 sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white", size = 8)
 
 ggsave("scatterplot2.png", width = 12, height =8, units = "in")
