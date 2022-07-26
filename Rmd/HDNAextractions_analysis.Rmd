@@ -176,11 +176,11 @@ sp1 <- ggplot(HDNA_data, aes(x=year_collected, y=concentration_norm, color = dna
     axis.title = element_text(size=24),
     axis.title.x = element_blank(),
     axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
-   plot.margin = unit(c(1,1,1,1), "cm")
+   plot.margin = unit(c(.5,.5,.5,.5), "cm")
   )
+sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white", size = 8)
 
-ggsave("scatterplot1.png", width = 12, height =8, units = "in")
-sp1 + stat_cor(method = "pearson", label.x = 50, label.y = 150, color = "white")
+ggsave("scatterplot2.png", width = 12, height =8, units = "in")
 ```
 ```{r year vs. purity scatterplot}
 ggplot(NanoDrop_data, aes(x=year_collected, y= "260/230")) +
